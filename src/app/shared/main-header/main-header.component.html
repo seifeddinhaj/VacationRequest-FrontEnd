@@ -1,0 +1,60 @@
+
+<header class="header-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <div class="site-logo">
+          <img src="assets/img/logo.png" alt="">
+        </div>
+        <div class="nav-switch">
+          <i class="fa fa-bars"></i>
+        </div>
+      </div>
+     <!-- <div class="col-lg-3 col-md-3">
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+           <div *ngIf ="authService.isLoggedIn" class="nav-item text-white">
+                <a class="dropdown-item"  (click)="authService.logout()">Logout</a>
+                <a class="dropdown-item"  routerLink="NewCourses">New Course</a>
+                <a class="dropdown-item"  routerLink="myCourses/{{id}}">My courses</a>
+                
+            
+        </div>
+        <div *ngIf ="!authService.isLoggedIn" class="nav-item text-white">
+            <a class="dropdown-item"  routerLink="Registration">Registre now</a>
+        
+    </div>
+          </div>
+        </div>
+      
+          
+      </div>--> 
+  <div class="col-lg-9 col-md-9">
+
+        <nav class="main-menu">
+          <ul>
+            <li><a routerLink="router">Home</a></li>
+            <li><a routerLink="toyoy">Categories</a></li>
+            <li><a routerLink="ylyly">Courses</a></li>
+           <!-- <li> <a *ngIf ="authService.isLoggedIn"  (click)="authService.logout()">Logout</a></li>
+               <li> <a  *ngIf ="authService.isLoggedIn"   routerLink="NewCourses">New Course</a></li>
+                <li><a *ngIf ="authService.isLoggedIn"   routerLink="myCourses/{{id}}">My courses</a> </li>-->
+                
+            
+       
+       
+           <li> <a  routerLink="#">Registre now</a></li>
+        
+  
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

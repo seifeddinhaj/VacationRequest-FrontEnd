@@ -9,6 +9,7 @@ import { Angular2TokenService } from 'angular2-token';
 import {  HttpModule } from '@angular/http';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
     MainHeaderComponent,
     MainFooterComponent,
     SignUpComponent,
-    SignInComponent
+    SignInComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

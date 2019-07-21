@@ -10,14 +10,15 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   signUpUser = {
+    email: '',
     name: '',
     nickname: '',
-    email: '',
+    
     password: '',
     passwordConfirmation: ''
   };
 
-  constructor(private router:Router,private authservice :AuthService) { }
+  constructor(private router:Router,private authservice :AuthService,private tokenauth:Angular2TokenService) { }
 
   ngOnInit() {
   }
@@ -28,6 +29,9 @@ export class SignUpComponent implements OnInit {
     this.signUpUser.password=pas;
     this.signUpUser.passwordConfirmation=passc;
     this.authservice.registerUser(this.signUpUser)
+    
+    //this.authservice.logInUser({email:this.signUpUser.email,password:this.signUpUser.password})
+    //this.tokenauth.patch('users/'+this.tokenauth.currentUserData.id,{nickname:'seif',name:'seif',email:this.tokenauth.currentUserData.email,provider:this.tokenauth.currentUserData.provider,image:this.tokenauth.currentUserData.image,uid:this.tokenauth.currentUserData.uid,id:this.tokenauth.currentUserData.id})
   this.router.navigateByUrl('/')
   }
 }

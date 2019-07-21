@@ -28,28 +28,37 @@ export class AuthService {
     return  user  !==  null;
 } 
   registerUser(signUpData:  {email: string, password: string, passwordConfirmation: string}) {
-    return this.authService.registerAccount(signUpData).subscribe(
-        res => {
-          this.userSignedIn$.next(true);
-          localStorage.setItem("user", JSON.stringify(this.authService.currentUserData.email));
-         
-        }
-    );
+    this.authService.registerAccount(signUpData).subscribe(
+
+      res => {
+
+      alert("account created succesfully!")
+      },
+
+      err => {
+        alert( err);
+      }
+      )
+    
   }
 
   logInUser(signInData: {email: string, password: string}) {
 
-    return this.authService.signIn(signInData).subscribe(
+     this.authService.signIn(signInData).subscribe(
         res => {
-          console.log("test");
-          this.userSignedIn$.next(true);
+          alert("login succes!")
+         
           localStorage.setItem("user", JSON.stringify(this.authService.currentUserData.email));
         
           
         
          
         },
-        
+        err => {
+          alert("Invalid login credentials. Please try again.");
+          
+
+        }
        
     );
   

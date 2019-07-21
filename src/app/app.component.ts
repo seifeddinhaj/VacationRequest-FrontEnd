@@ -13,7 +13,7 @@ export class AppComponent {
   constructor(private authToken: Angular2TokenService){
    this.authToken.init(environment.token_auth_config);
 
-    this.authToken.signIn({email: "seif@yahoo.com", password: "seifseif"})
+    /*this.authToken.signIn({email: "seif@yahoo.com", password: "seifseif"})
     .subscribe(
 
         res => {
@@ -26,6 +26,6 @@ export class AppComponent {
         err => {
           console.error('auth error:', err);
         }
-    )
+    )*/
   }
 }

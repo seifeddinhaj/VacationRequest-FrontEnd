@@ -1,0 +1,11 @@
+<div class="row" >
+  <div class="col-lg-10 offset-lg-1">
+    <div class="intro-newslatter">
+      <input type="text" placeholder="E-mail" #email
+      class="validate" required autofocus>
+      <input  type="password" class="last-s" placeholder="Password" #password
+      class="validate" required>
+      <button class="site-btn" (click)="login(email.value,password.value)">Sign In</button>
+    </div>
+  </div>
+</div>

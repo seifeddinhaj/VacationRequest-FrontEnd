@@ -17,21 +17,10 @@
   <!-- Hero section -->
   <section class="hero-section set-bg" data-setbg="assets/img/bg.jpg" style="background-image: url('assets/img/bg.jpg');">
     <div class="container">
-      <div class="hero-text text-white">
-        <h2>Get The Best Free Online Courses</h2>
-        
-      </div>
-      <div class="row" >
-        <div class="col-lg-10 offset-lg-1">
-          <div class="intro-newslatter">
-            <input type="text" placeholder="E-mail" #userEmail required autofocus>
-            <input  type="password" class="last-s" placeholder="Password" #userPassword required>
-            <button class="site-btn" (click)="authService.login(userEmail.value, userPassword.value)">Login</button>
-          </div>
-        </div>
-      </div>
+      
+     <app-sign-in></app-sign-in>
     </div>
-  </section>
+  </section> 
   <!-- Hero section end -->
   <div class="container">
 

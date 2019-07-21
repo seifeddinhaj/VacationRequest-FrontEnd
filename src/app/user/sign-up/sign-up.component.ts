@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +17,7 @@ export class SignUpComponent implements OnInit {
     passwordConfirmation: ''
   };
 
-  constructor(private tokenAuthSerivce:Angular2TokenService) { }
+  constructor(private router:Router,private authservice :AuthService) { }
 
   ngOnInit() {
   }
@@ -25,21 +27,7 @@ export class SignUpComponent implements OnInit {
     this.signUpUser.email=em;
     this.signUpUser.password=pas;
     this.signUpUser.passwordConfirmation=passc;
-    this.tokenAuthSerivce.registerAccount(this.signUpUser).subscribe(
-
-      (res) => {
-
-        if (res.status == 200){
-          alert("accout created with succes")
-        }
-
-      },
-
-      (err) => {
-        console.log(err.json())
-      
-      }
-  )
-
+    this.authservice.registerUser(this.signUpUser)
+  this.router.navigateByUrl('/')
   }
 }

@@ -36,7 +36,9 @@
           
       </div>--> 
   <div class="col-lg-9 col-md-9">
-    <a  class="site-btn header-btn" routerLink="auth/signUp">Sign Up</a>
+   
+  <a  class="site-btn header-btn" routerLink="auth/signUp" *ngIf="!(authservice.isLoggedIn)">Sign Up</a>
+  <a class="site-btn header-btn " (click)="logOut()"  *ngIf="(authservice.isLoggedIn)">Logout</a>
         <nav class="main-menu">
           <ul>
             <li><a routerLink="router">Home</a></li>

@@ -41,9 +41,10 @@
   <a class="site-btn header-btn " (click)="logOut()"  *ngIf="(authservice.isLoggedIn)">Logout</a>
         <nav class="main-menu">
           <ul>
-            <li><a routerLink="router">Home</a></li>
-            <li><a routerLink="toyoy">Categories</a></li>
-            <li><a routerLink="ylyly">Courses</a></li>
+            <li><a routerLink="router" *ngIf="isAdmin()" >Users</a></li>
+            <li><a routerLink="router" *ngIf="isAdmin()" >Requests</a></li>
+            <li><a routerLink="toyoy" *ngIf="!isAdmin()">My requests</a></li>
+            <li><a routerLink="ylyly">Profile</a></li>
            <!-- <li> <a *ngIf ="authService.isLoggedIn"  (click)="authService.logout()">Logout</a></li>
                <li> <a  *ngIf ="authService.isLoggedIn"   routerLink="NewCourses">New Course</a></li>
                 <li><a *ngIf ="authService.isLoggedIn"   routerLink="myCourses/{{id}}">My courses</a> </li>-->

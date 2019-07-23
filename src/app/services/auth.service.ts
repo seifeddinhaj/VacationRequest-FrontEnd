@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Angular2TokenService } from 'angular2-token';
 import{map} from 'rxjs/operators'
+import { user } from '../models/user';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-  
-  constructor(private authService: Angular2TokenService) {
+  user:user;
+  constructor(private authService: Angular2TokenService,private router:Router) {
   
  
 
@@ -16,12 +18,12 @@ export class AuthService {
    logOutUser() {
 
     
-          localStorage.removeItem('user');
-         
+          localStorage.clear();
+         this.router.navigateByUrl("/")
      
   }
   get isLoggedIn(): boolean {
-    const  user  =  JSON.parse(localStorage.getItem('user'));
+    const  user  =  JSON.parse(localStorage.getItem('id'));
     return  user  !==  null;
 } 
   registerUser(signUpData:  {email: string, password: string, passwordConfirmation: string}) {
@@ -44,8 +46,12 @@ export class AuthService {
      this.authService.signIn(signInData).subscribe(
         res => {
           alert("login succes!")
+        
          
-          localStorage.setItem("user", JSON.stringify(this.authService.currentUserData.email));
+          localStorage.setItem("email", this.authService.currentUserData.email);
+          localStorage.setItem("name",this.authService.currentUserData.name);
+          localStorage.setItem("lastname",this.authService.currentUserData.nickname);
+          localStorage.setItem("id",JSON.stringify(this.authService.currentUserData.id));
         
           
         

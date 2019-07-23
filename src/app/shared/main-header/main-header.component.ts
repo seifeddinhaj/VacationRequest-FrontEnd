@@ -25,7 +25,7 @@ export class MainHeaderComponent implements OnInit {
   logOut() {
     this.authservice.logOutUser();  }
     isAdmin():boolean{
-if(JSON.parse(localStorage.getItem('user'))=="admin@yahoo.com")
+if(localStorage.getItem('email')==="admin@yahoo.com")
 return true;
 else
 return false;

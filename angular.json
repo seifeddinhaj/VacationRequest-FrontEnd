@@ -26,7 +26,9 @@
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/style.css",
+              "src/assets/css/datatables.min.css",
               "src/assets/css/owl.carousel.css"
+              
             ],
             "scripts": [
               "src/assets/js/jquery-3.2.1.min.js",
@@ -34,7 +36,11 @@
               "src/assets/js/circle-progress.min.js",
               "src/assets/js/mixitup.min.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/main.js"
+              "src/assets/js/datatables.min.js",
+              "src/assets/js/datatables.js",
+              "src/assets/js/main.js",
+              "src/assets/js/datatable.js"
+
             ],
             "es5BrowserSupport": true
           },

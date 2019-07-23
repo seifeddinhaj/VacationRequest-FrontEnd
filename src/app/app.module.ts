@@ -10,6 +10,7 @@ import {  HttpModule } from '@angular/http';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RequestComponent } from './request/request.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
     MainFooterComponent,
     SignUpComponent,
     SignInComponent,
-    ProfileComponent
+    ProfileComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,

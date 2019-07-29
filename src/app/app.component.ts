@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent {  
   title = 'FrontEnd';
   constructor(private authToken: Angular2TokenService){
    this.authToken.init(environment.token_auth_config);

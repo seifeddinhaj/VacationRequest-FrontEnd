@@ -10,12 +10,9 @@ import { map } from 'rxjs/operators';
 })
 export class RequestComponent implements OnInit {
 requests ;
-namee
+namee;
   constructor(private authToken:Angular2TokenService) {
-    this.authToken.get("users/1").subscribe(data =>{
-      this.namee=data.json()
-      console.log(this.namee.name )
-    }) 
+    
 this.authToken.get('requests')
 .subscribe((data) => {
   
@@ -32,7 +29,9 @@ getuserName(id):string{
   this.authToken.get("users/"+id).subscribe(data =>{
     this.namee=data.json()
   })
+  
   return this.namee.name+" "+this.namee.nickname;
+  
 
 
 }

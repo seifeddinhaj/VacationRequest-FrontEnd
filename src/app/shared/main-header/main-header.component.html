@@ -42,7 +42,7 @@
         <nav class="main-menu">
           <ul>
             <li><a routerLink="router" *ngIf="isAdmin()" >Users</a></li>
-            <li><a routerLink="router" *ngIf="isAdmin()" >Requests</a></li>
+            <li><a routerLink="admin/requests" *ngIf="isAdmin()" >Requests</a></li>
             <li><a routerLink="toyoy" *ngIf="!isAdmin()">My requests</a></li>
             <li><a routerLink="auth/profile">Profile</a></li>
            <!-- <li> <a *ngIf ="authService.isLoggedIn"  (click)="authService.logout()">Logout</a></li>

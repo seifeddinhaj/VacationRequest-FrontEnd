@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Angular2TokenService } from 'angular2-token';
 import { map } from 'rxjs/operators';
+import { Requests } from '../models/requests';
 
 @Component({
   selector: 'app-request',
@@ -10,29 +11,48 @@ import { map } from 'rxjs/operators';
 })
 export class RequestComponent implements OnInit {
 requests ;
+requestss ;
 namee;
+req:Requests;
   constructor(private authToken:Angular2TokenService) {
     
 this.authToken.get('requests')
 .subscribe((data) => {
   
   this.requests=data.json()
-  console.log(this.requests)
+  //console.log(this.requests)
 
   });
+  this.authToken.get('requests')
+.subscribe((data) => {
+  
+  this.requestss=data.json()
+ 
+  //console.log(this.requests)
+
+  });
+  
+  
   
   }
   ngOnInit() {
   }
-getuserName(id):string{
-  
-  this.authToken.get("users/"+id).subscribe(data =>{
-    this.namee=data.json()
-  })
-  
-  return this.namee.name+" "+this.namee.nickname;
-  
+  accpet(id,startDate,endDate,reason,treated,accepted,user_id){
 
+console.log(startDate)
+treated=1
+accepted=1
+this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason,treated:treated,accepted:accepted,user_id:user_id}).subscribe((data=>{
+  console.log(data)
+}));
+  }
+  refuse(id,startDate,endDate,reason,treated,accepted,user_id){
 
-}
+    console.log(startDate)
+    treated=1
+    accepted=0
+    this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason,treated:treated,accepted:accepted,user_id:user_id}).subscribe((data=>{
+      console.log(data)
+    }));
+      }
 }

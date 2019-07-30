@@ -1,11 +1,11 @@
 export interface Requests{
     id: number;
-    StartDate:Date;
-    EndDate:Date;
+    StartDate
+    EndDate;
     reason:string;
     treated:boolean;
     accepted:boolean;
-    userid:number;
+    user_id:number;
     
     
 }

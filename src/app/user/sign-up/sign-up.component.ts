@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { timeout } from 'rxjs/operators';
+import { delay } from 'q';
 
 @Component({
   selector: 'app-sign-up',
@@ -23,15 +25,18 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
   Registre(n,nk,em,pas,passc){
-    this.signUpUser.name=n;
+    /*this.signUpUser.name=n;
     this.signUpUser.nickname=nk;
     this.signUpUser.email=em;
     this.signUpUser.password=pas;
-    this.signUpUser.passwordConfirmation=passc;
-    this.authservice.registerUser(this.signUpUser)
-    
-    //this.authservice.logInUser({email:this.signUpUser.email,password:this.signUpUser.password})
-    //this.tokenauth.patch('users/'+this.tokenauth.currentUserData.id,{nickname:'seif',name:'seif',email:this.tokenauth.currentUserData.email,provider:this.tokenauth.currentUserData.provider,image:this.tokenauth.currentUserData.image,uid:this.tokenauth.currentUserData.uid,id:this.tokenauth.currentUserData.id})
+    this.signUpUser.passwordConfirmation=passc;*/
+    this.authservice.registerUser({email:em,password:pas,passwordConfirmation:passc})
+   
+   /* this.tokenauth.patch('users/'+this.tokenauth.currentUserData.id,{nickname:nk,name:n,email:em,encrypted_password:pas,image:'assets/img/avatar.png'}).subscribe(data=>{
+      console.log(data)
+    })*/
   this.router.navigateByUrl('/')
   }
+  
+   
 }

@@ -27,7 +27,7 @@ export class AuthService {
     return  user  !==  null;
 } 
   registerUser(signUpData:  {email: string, password: string, passwordConfirmation: string}) {
-    this.authService.registerAccount(signUpData).subscribe(
+    return this.authService.registerAccount(signUpData).subscribe(
 
       res => {
 
@@ -43,7 +43,7 @@ export class AuthService {
 
   logInUser(signInData: {email: string, password: string}) {
 
-     this.authService.signIn(signInData).subscribe(
+     return this.authService.signIn(signInData).subscribe(
         res => {
           alert("login succes!")
         
@@ -52,6 +52,7 @@ export class AuthService {
           localStorage.setItem("name",this.authService.currentUserData.name);
           localStorage.setItem("lastname",this.authService.currentUserData.nickname);
           localStorage.setItem("id",JSON.stringify(this.authService.currentUserData.id));
+          localStorage.setItem("image",JSON.stringify(this.authService.currentUserData.image));
         
           
         

@@ -16,9 +16,56 @@
             <td *ngIf="!item.treated">{{item.startDate}}</td>
             <td *ngIf="!item.treated">{{item.endDate}}</td>
             <td *ngIf="!item.treated">
+                   
                 <button type="button" class="btn btn-success" (click)="accpet(item.id,item.startDate,item.endDate,item.reason,item.treated,item.accepted,item.user.id)" >Accept</button>
                 <button type="button" class="btn btn-danger" (click)="refuse(item.id,item.startDate,item.endDate,item.reason,item.treated,item.accepted,item.user.id)">Refuse</button>
-                <button type="button" class="btn btn-info">Details</button></td>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Details</button>
+            
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                    <form>
+                                            <div class="form-group">
+                                              <label for="email">Email address</label>
+                                              <input type="email" class="form-control" id="exampleInputEmail1"  value="{{item.user.email}}" readonly="readonly">
+                                             
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="Fullname">Full name</label>
+                                              <input type="text" class="form-control"  value="{{item.user.name}}  {{item.user.nickname}}" readonly="readonly">
+                                            </div>
+                                            <div class="form-group">
+                                                    <label for="startDate">Start Date</label>
+                                                    <input type="text" class="form-control" value="{{item.startDate}}" readonly="readonly">
+                                                  </div>
+                                                  <div class="form-group">
+                                                        <label for="endDate">End Date</label>
+                                                        <input type="rext" class="form-control" value="{{item.endDate}}" readonly="readonly">
+                                                      </div>
+                                                      <div class="form-group">
+                                                            <label for="reason">Reason</label>
+                                                            <input type="textarea" class="form-control"  value="{{item.reason}}" readonly="readonly">
+                                                          </div>
+                                            
+                                            
+                              
+</form>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div></td>
        
         </tr>
         
@@ -45,7 +92,7 @@
         <tbody>
           
         
-                <tr *ngFor="let item of requestss " class="table-info" >
+                <tr *ngFor="let item of requests " class="table-info" >
             
                        
                             <td  *ngIf="item.treated">{{item.user.name}} {{item.user.nickname}} </td>

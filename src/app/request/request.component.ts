@@ -23,14 +23,7 @@ this.authToken.get('requests')
   //console.log(this.requests)
 
   });
-  this.authToken.get('requests')
-.subscribe((data) => {
   
-  this.requestss=data.json()
- 
-  //console.log(this.requests)
-
-  });
   
   
   
@@ -45,6 +38,14 @@ accepted=1
 this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason,treated:treated,accepted:accepted,user_id:user_id}).subscribe((data=>{
   console.log(data)
 }));
+this.authToken.get('requests')
+.subscribe((data) => {
+  
+  this.requests=data.json()
+  //console.log(this.requests)
+
+  });
+ 
   }
   refuse(id,startDate,endDate,reason,treated,accepted,user_id){
 
@@ -54,5 +55,12 @@ this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:
     this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason,treated:treated,accepted:accepted,user_id:user_id}).subscribe((data=>{
       console.log(data)
     }));
+    this.authToken.get('requests')
+.subscribe((data) => {
+  
+  this.requests=data.json()
+console.log(this.requests)
+
+  });
       }
 }

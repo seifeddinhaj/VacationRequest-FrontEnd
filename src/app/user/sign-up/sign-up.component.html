@@ -10,10 +10,7 @@
             </div>
             <!-- signup form -->
             <div class="signup-form">
-              <input type="text" placeholder="Your Name" #name
-              class="validate">
-              <input type="text" placeholder="Your Llast Name" #lastname 
-              class="validate">
+              
               <input type="email" placeholder="Your E-mail" #email
               class="validate">
               
@@ -21,7 +18,7 @@
               class="validate">
               <input type="password" placeholder="confirme password" #passwordconfirmation>
              
-              <button class="site-btn" (click)="Registre(name.value,lastname.value,email.value,password.value,passwordconfirmation.value)">Registre</button>
+              <button class="site-btn" (click)="Registre(email.value,password.value,passwordconfirmation.value)">Registre</button>
             </div>
           </div>
         </div>

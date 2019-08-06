@@ -53,6 +53,7 @@ export class AuthService {
           localStorage.setItem("lastname",this.authService.currentUserData.nickname);
           localStorage.setItem("id",JSON.stringify(this.authService.currentUserData.id));
           localStorage.setItem("image",JSON.stringify(this.authService.currentUserData.image));
+          localStorage.setItem("adresse",null);
         
           
         

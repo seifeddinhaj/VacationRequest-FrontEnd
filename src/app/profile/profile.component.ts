@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -12,12 +13,19 @@ name;lastname;email;
 selectedFile:FileList;
 imgPreview:string;
 image;
+adresse;
+profile;
   constructor(private tokenauth:Angular2TokenService) {
 this.email=localStorage.getItem("email");
 this.name=localStorage.getItem("name");
 this.lastname=localStorage.getItem("lastname");
 this.image=localStorage.getItem("image");
-  }
+this.adresse=localStorage.getItem("adresse")
+this.tokenauth.get("users/"+localStorage.getItem("id")).subscribe(data =>{
+  this.profile=data.json();
+  console.log(this.profile)
+})
+ }
 
   ngOnInit() {
   }
@@ -31,11 +39,12 @@ this.imgPreview=this.selectedFile.item(0).name
     
   }
 
-  editProfile(firstname,lastname,email){
+  editProfile(firstname,lastname,email,adresse){
     console.log(firstname)
     localStorage.setItem("name",firstname);
     localStorage.setItem("lastname",lastname);
     localStorage.setItem("image",this.imgPreview);
-    this.tokenauth.patch("users/"+localStorage.getItem('id'),{name:firstname,nickname:lastname,email:email,image:this.imgPreview})
+    localStorage.setItem("adresse",adresse);
+    this.tokenauth.patch("users/"+localStorage.getItem('id'),{name:firstname,nickname:lastname,email:email,image:this.imgPreview,adresse:adresse})
   }
 }

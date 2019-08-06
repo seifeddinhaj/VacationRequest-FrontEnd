@@ -24,7 +24,8 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
   }
-  Registre(n,nk,em,pas,passc){
+  Registre(em,pas,passc){
+    console.log(em +pas +passc)
     /*this.signUpUser.name=n;
     this.signUpUser.nickname=nk;
     this.signUpUser.email=em;

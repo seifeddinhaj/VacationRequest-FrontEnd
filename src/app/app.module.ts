@@ -11,6 +11,8 @@ import { SignUpComponent } from './user/sign-up/sign-up.component';
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestComponent } from './request/request.component';
+import { CreateRequestComponent } from './create-request/create-request.component';
+import { MyRequestsComponent } from './my-requests/my-requests.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { RequestComponent } from './request/request.component';
     SignUpComponent,
     SignInComponent,
     ProfileComponent,
-    RequestComponent
+    RequestComponent,
+    CreateRequestComponent,
+    MyRequestsComponent
   ],
   imports: [
     BrowserModule,

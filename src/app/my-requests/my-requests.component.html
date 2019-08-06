@@ -1,0 +1,36 @@
+<table class="table table-striped w-auto" border="1">
+
+  <!--Table head-->
+  <thead>
+    <tr>
+      
+      
+          <th>Full Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>State</th>
+    </tr>
+  </thead>
+  <!--Table head-->
+
+  <!--Table body-->
+  <tbody>
+    
+  
+          <tr *ngFor="let item of requests " class="table-info" >
+      
+                 
+                      <td  >{{item.user.name}} {{item.user.nickname}} </td>
+                      <td  >{{item.startDate}}</td>
+                      <td  >{{item.endDate}}</td>
+                      <td  ><div *ngIf="item.accepted" style="color:green">Accepted</div> <div *ngIf="!item.accepted" style="color:red">Refused</div> </td>
+                  
+                  </tr>
+            
+   
+    
+  </tbody>
+  <!--Table body-->
+
+
+</table>

@@ -21,9 +21,19 @@
       
                  
                       <td  >{{item.user.name}} {{item.user.nickname}} </td>
+
                       <td  >{{item.startDate}}</td>
                       <td  >{{item.endDate}}</td>
-                      <td  ><div *ngIf="item.accepted" style="color:green">Accepted</div> <div *ngIf="!item.accepted" style="color:red">Refused</div> </td>
+                      
+                      <td  > <div  *ngIf="!item.treated ; else elseTemplate" style="color:indianred">
+                        not treated yet 
+                      </div>
+                      
+                      <ng-template #elseTemplate>
+                        <div *ngIf="item.accepted" style="color:green">Accepted</div>
+                        <div *ngIf="!item.accepted" style="color:red">Refused</div>
+                      </ng-template>
+                       </td>
                   
                   </tr>
             

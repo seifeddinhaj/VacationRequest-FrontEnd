@@ -14,9 +14,15 @@ export class CreateRequestComponent implements OnInit {
   ngOnInit() {
   }
   createReq(startDate,endDate,reason){
+    if (startDate===""|| endDate===""||reason==="") {
+      alert("you have to fill all the fields to create your request")
+      
+    } else {
+      
+    
     this.tokenauth.post("requests",{startDate:startDate,endDate:endDate,reason:reason,accepted:false,treated:false,comment:null,user_id:localStorage.getItem("id")})
     this.router.navigateByUrl('auth/myRequests')
-
+  }
 
   }
 }

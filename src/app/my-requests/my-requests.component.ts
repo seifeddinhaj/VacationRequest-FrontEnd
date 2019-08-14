@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { Observable } from 'rxjs';
 import { userInfo } from 'os';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-requests',
@@ -10,8 +11,8 @@ import { userInfo } from 'os';
 })
 export class MyRequestsComponent implements OnInit {
   requests;
-  req:Observable<any>;
-  constructor(private authToken:Angular2TokenService) {
+  
+  constructor(private authToken:Angular2TokenService ,private router:Router) {
     this.authToken.get('requests')
 .subscribe((data) => {
   
@@ -25,5 +26,18 @@ console.log(this.requests)
 
   ngOnInit() {
   }
+  update(id,startDate,endDate,reason){
+    console.log(id)
+this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason})
 
+  }
+  delete(id){
+    this.authToken.delete("requests/"+id)
+    this.authToken.get('requests')
+    .subscribe((data) => {
+      
+      this.requests=data.json()
+     this.requests=this.requests.filter(x=>x.user.id==localStorage.getItem("id"))})
+
+  }
 }

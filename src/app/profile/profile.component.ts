@@ -40,6 +40,11 @@ this.imgPreview=this.selectedFile.item(0).name
   }
 
   editProfile(firstname,lastname,email,adresse){
+    if (firstname===""|| lastname==="" || adresse==="") {
+      alert ("fill all the fields")
+    } else {
+      
+    
     console.log(firstname)
     localStorage.setItem("name",firstname);
     localStorage.setItem("lastname",lastname);
@@ -47,4 +52,5 @@ this.imgPreview=this.selectedFile.item(0).name
     localStorage.setItem("adresse",adresse);
     this.tokenauth.patch("users/"+localStorage.getItem('id'),{name:firstname,nickname:lastname,email:email,image:this.imgPreview,adresse:adresse})
   }
+ }
 }

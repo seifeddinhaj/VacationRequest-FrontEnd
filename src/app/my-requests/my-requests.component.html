@@ -9,6 +9,7 @@
           <th>Start Date</th>
           <th>End Date</th>
           <th>State</th>
+          <th>Actions</th>
     </tr>
   </thead>
   <!--Table head-->
@@ -34,9 +35,113 @@
                         <div *ngIf="!item.accepted" style="color:red">Refused</div>
                       </ng-template>
                        </td>
-                  
+                       <td>
+                          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Details</button>
+                      
+                              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                                                  <form>
+                                                          <div class="form-group">
+                                                            <label for="email">Email address</label>
+                                                            <input type="email" class="form-control" id="exampleInputEmail1"  value="{{item.user.email}}"  >
+                                                           
+                                                          </div>
+                                                          <div class="form-group">
+                                                            <label for="Fullname">Full name</label>
+                                                            <input type="text" class="form-control"  value="{{item.user.name}}  {{item.user.nickname}}"  >
+                                                          </div>
+                                                          <div class="form-group">
+                                                                  <label for="startDate">Start Date</label>
+                                                                  <input type="text" class="form-control" value="{{item.startDate}}"  >
+                                                                </div>
+                                                                <div class="form-group">
+                                                                      <label for="endDate">End Date</label>
+                                                                      <input type="rext" class="form-control" value="{{item.endDate}}"  >
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                          <label for="reason">Reason</label>
+                                                                          <input type="textarea" class="form-control"  value="{{item.reason}}"  >
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <label for="comment">Comment</label>
+                                                                            <input type="textarea" class="form-control"  value="{{item.comment}}"  >
+                                                                          </div>
+                                                          
+                                            
+              </form>
+              
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <button type="button" class="btn btn-danger" (click)="delete(item.id)" >Delete</button>
+
+
+
+
+
+
+                                   
+                                  <button type="button" class="btn btn-success" *ngIf="!item.treated" data-toggle="modal" data-target="#exampleModa">Edit</button>
+                      
+                              <div class="modal fade" id="exampleModa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Update Your Request</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                          </div>
+                                          <div class="modal-body">
+                         
+                                                          
+                                                          <div class="form-group">
+                                                                  <label for="startDate">Start Date</label>
+                                                                  <input type="date" class="form-control" value="{{item.startDate}}"  #startDate >
+                                                                </div>
+                                                                <div class="form-group">
+                                                                      <label for="endDate">End Date</label>
+                                                                      <input type="date" class="form-control" value="{{item.endDate}}" #endDate >
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                          <label for="reason">Reason</label>
+                                                                          <input type="textarea" class="form-control"  value="{{item.reason}}" #reason>
+                                                                        </div>
+                                                                        
+                                                          
+                                            
+           
+              
+                                          </div>
+                                          <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="update(item.id,startDate.value,endDate.value,reason.value)">Confirm</button>
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  
+                                  </td>
+
+
                   </tr>
             
+                 
+       
    
     
   </tbody>

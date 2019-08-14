@@ -52,12 +52,12 @@ export class AuthService {
           localStorage.setItem("name",this.authService.currentUserData.name);
           localStorage.setItem("lastname",this.authService.currentUserData.nickname);
           localStorage.setItem("id",JSON.stringify(this.authService.currentUserData.id));
-          localStorage.setItem("image",JSON.stringify(this.authService.currentUserData.image));
+          localStorage.setItem("image",this.authService.currentUserData.image);
           localStorage.setItem("adresse",null);
         
           
         
-         
+          
         },
         err => {
           alert("Invalid login credentials. Please try again.");

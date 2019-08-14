@@ -47,20 +47,26 @@ this.authToken.get('requests')
   });
  
   }
-  refuse(id,startDate,endDate,reason,treated,accepted,user_id){
+  refuse(id,startDate,endDate,reason,treated,accepted,user_id ,comment){
 
-    console.log(startDate)
+    console.log(comment)
     treated=1
     accepted=0
-    this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason,treated:treated,accepted:accepted,user_id:user_id}).subscribe((data=>{
-      console.log(data)
-    }));
-    this.authToken.get('requests')
-.subscribe((data) => {
+    if (comment==="") {
+      alert("fill the comment field")
+    } else {
+      this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:reason,treated:treated,accepted:accepted,user_id:user_id,comment:comment}).subscribe((data=>{
+        console.log(data)
+      }));
+      this.authToken.get('requests')
+  .subscribe((data) => {
+    
+    this.requests=data.json()
+  console.log(this.requests)
   
-  this.requests=data.json()
-console.log(this.requests)
-
-  });
-      }
+    });
+        }
+      
+    }
+    
 }

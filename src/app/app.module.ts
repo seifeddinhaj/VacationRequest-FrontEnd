@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { RequestComponent } from './request/request.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MyRequestsComponent } from './my-requests/my-requests.component';
     ProfileComponent,
     RequestComponent,
     CreateRequestComponent,
-    MyRequestsComponent
+    MyRequestsComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -12,14 +12,38 @@ export class SignInComponent implements OnInit {
     email: '',
     password: ''
   };
-  constructor(private authservice:AuthService) { }
+  constructor(private authservice:AuthService,private tokenauth :Angular2TokenService) { }
 
   ngOnInit() {
   }
   login(em,pass){
 this.signInUser.email=em;
 this.signInUser.password=pass;
-    this.authservice.logInUser(this.signInUser)
+    this.tokenauth.signIn(this.signInUser).subscribe(
+      res => {
+        alert("login succes!")
+      
+       
+        localStorage.setItem("email", this.tokenauth.currentUserData.email);
+        localStorage.setItem("name",this.tokenauth.currentUserData.name);
+        localStorage.setItem("lastname",this.tokenauth.currentUserData.nickname);
+        localStorage.setItem("id",JSON.stringify(this.tokenauth.currentUserData.id));
+        localStorage.setItem("image",this.tokenauth.currentUserData.image);
+        localStorage.setItem("adresse",null);
+      
+        
+      
+        
+      },
+      err => {
+        alert("Invalid login credentials. Please try again.");
+        
+
+      }
+     
+  );
+
+
   }
 
 }

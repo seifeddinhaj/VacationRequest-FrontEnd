@@ -55,6 +55,25 @@ this.imgPreview=this.selectedFile.item(0).name
   }
  }
  resetPassword(){
-   this.router.navigateByUrl('auth/resetPassword')
- }
+   //this.router.navigateByUrl('auth/resetPassword')
+   this.tokenauth.resetPassword({
+    email:"admin@yahoo.com"
+  }).subscribe(
+    res =>      console.log(res),
+    error =>    console.log(error)
+  ); 
+   this.tokenauth.updatePassword({
+    password:             'adminadmin',
+    passwordConfirmation: 'adminadmin',
+    passwordCurrent:      'seifseif',
+    resetPasswordToken:   '$2a$12$Az60LCk1Qu5q/tqVOIhEyO.xu.mVFqFHjllZs.GpZRtZtl9jUuura","updated_at":"2019-08-17T13:31:08.801Z',
+}).subscribe(
+    res =>      console.log(res),
+    error =>    console.log(error)
+); 
+console.log(this.tokenauth.currentUserData)
+
 }
+
+}
+

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,7 @@ imgPreview:string;
 image;
 adresse;
 profile;
-  constructor(private tokenauth:Angular2TokenService) {
+  constructor(private tokenauth:Angular2TokenService ,private router:Router) {
 this.email=localStorage.getItem("email");
 this.name=localStorage.getItem("name");
 this.lastname=localStorage.getItem("lastname");
@@ -52,5 +53,8 @@ this.imgPreview=this.selectedFile.item(0).name
     localStorage.setItem("adresse",adresse);
     this.tokenauth.patch("users/"+localStorage.getItem('id'),{name:firstname,nickname:lastname,email:email,image:this.imgPreview,adresse:adresse})
   }
+ }
+ resetPassword(){
+   this.router.navigateByUrl('auth/resetPassword')
  }
 }

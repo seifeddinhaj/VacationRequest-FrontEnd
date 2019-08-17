@@ -6,12 +6,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { RequestComponent } from './request/request.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 const routes: Routes = [
   {path:'auth/signUp',component:SignUpComponent },
   {path:'auth/profile',component:ProfileComponent },
   {path:'auth/CreateRequest',component:CreateRequestComponent },
   {path:'auth/myRequests',component:MyRequestsComponent },
+  {path:'auth/resetPassword',component:ResetPasswordComponent },
   {path:'admin/requests',component:RequestComponent }
 ];
 

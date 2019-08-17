@@ -51,7 +51,7 @@
                           
                           <div class="col-xs-6">
                               <label for="first_name"><h4>First name</h4></label>
-                              <input type="text" class="form-control" name="first_name" id="first_name" value="{{profile.name}}" title="enter your first name if any." #firstname>
+                              <input type="text" class="form-control" name="first_name" id="first_name" value="{{profile.name}}"  title="enter your first name if any." #firstname>
                           </div>
                       </div>
                       <div class="form-group">
@@ -86,7 +86,7 @@
                            <div class="col-xs-12">
                                 <br>
                               	<button class="btn btn-lg btn-success"  (click)="editProfile(firstname.value,lastname.value,email.value,adresse.value)"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                               	<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                               	<button class="btn btn-lg" (click)="resetPassword()"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
                             </div>
                       </div>
                     </div>

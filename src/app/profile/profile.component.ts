@@ -55,9 +55,9 @@ this.imgPreview=this.selectedFile.item(0).name
   }
  }
  resetPassword(){
-   //this.router.navigateByUrl('auth/resetPassword')
-   this.tokenauth.resetPassword({
-    email:"admin@yahoo.com"
+   this.router.navigateByUrl('auth/resetPassword')
+   /*this.tokenauth.resetPassword({
+    email:"seif1994@yahoo.fr"
   }).subscribe(
     res =>      console.log(res),
     error =>    console.log(error)
@@ -71,7 +71,7 @@ this.imgPreview=this.selectedFile.item(0).name
     res =>      console.log(res),
     error =>    console.log(error)
 ); 
-console.log(this.tokenauth.currentUserData)
+console.log(this.tokenauth.currentUserData)*/
 
 }
 

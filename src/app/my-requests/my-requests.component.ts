@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Angular2TokenService } from 'angular2-token';
-import { Observable } from 'rxjs';
-import { userInfo } from 'os';
+
 import { Router } from '@angular/router';
 
 @Component({

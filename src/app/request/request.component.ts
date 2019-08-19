@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Angular2TokenService } from 'angular2-token';
 import { map } from 'rxjs/operators';
 import { Requests } from '../models/requests';
-
+declare var $;
 @Component({
   selector: 'app-request',
   templateUrl: './request.component.html',
@@ -14,6 +14,9 @@ requests ;
 requestss ;
 namee;
 req:Requests;
+@ViewChild('dataTable',{static: true}) table;
+dataTable: any;
+dtOption: any = {};
   constructor(private authToken:Angular2TokenService) {
     
 this.authToken.get('requests')
@@ -29,6 +32,14 @@ this.authToken.get('requests')
   
   }
   ngOnInit() {
+    this.dtOption = {
+      "paging":   true,
+      "ordering": true,
+      "info":     false
+  };
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable(this.dtOption);
+    this.dataTable.DataTable(); 
   }
   accpet(id,startDate,endDate,reason,treated,accepted,user_id){
 

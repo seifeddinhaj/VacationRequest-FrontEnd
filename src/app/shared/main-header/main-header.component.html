@@ -41,7 +41,7 @@
   <a class="site-btn header-btn " (click)="logOut()"  *ngIf="(authservice.isLoggedIn)">Logout</a>
         <nav class="main-menu">
           <ul>
-            <li><a routerLink="router" *ngIf="isAdmin()" >Users</a></li>
+            <li><a routerLink="admin/users" *ngIf="isAdmin()" >Users</a></li>
             <li><a routerLink="admin/requests" *ngIf="isAdmin()" >Requests</a></li>
             <li><a routerLink="auth/myRequests" *ngIf="!isAdmin()">My requests</a></li>
             <li><a routerLink="auth/CreateRequest" *ngIf="!isAdmin()">New Request</a></li>

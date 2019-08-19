@@ -14,6 +14,7 @@ import { RequestComponent } from './request/request.component';
 import { CreateRequestComponent } from './create-request/create-request.component';
 import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
     RequestComponent,
     CreateRequestComponent,
     MyRequestsComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    AllUsersComponent
   ],
   imports: [
     BrowserModule,

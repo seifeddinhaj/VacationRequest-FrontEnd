@@ -1,10 +1,15 @@
 export interface user{
     id: number;
     name:string;
-    lastname:string;
+    nickname:string;
     image:string;
     email:string;
-    password:string;
+    allow_password_change:boolean;
+    adresse:string;
+    created_at:string
+    provider:string;
+    uid:string
+    updated_at:string
     
     
 }

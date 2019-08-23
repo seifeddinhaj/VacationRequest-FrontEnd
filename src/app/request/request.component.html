@@ -1,4 +1,139 @@
-<table #dataTable class="display" style="width:100%">
+<div>
+  <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.user.name}} </td>
+    </ng-container> 
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> startDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> endDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+    </ng-container>
+  
+    
+  
+    
+    
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef > Action </th>
+      <td  mat-cell *matCellDef="let element" >
+             
+        <button type="button" class="btn btn-success" (click)="accpet(element.id,element.startDate,element.endDate,element.reason,element.treated,element.accepted,element.user.id)" >Accept</button>
+        <!--<button type="button" class="btn btn-danger" (click)="refuse(item.id,item.startDate,item.endDate,item.reason,item.treated,item.accepted,item.user.id)">Refuse</button>-->
+
+
+
+
+
+
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModa">Refuse</button>
+    
+        <div class="modal fade" id="exampleModa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">why refuse</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            
+                                    <div class="form-group">
+                                      <label for="comment">Your Comment</label>
+                                      <input type="text" class="form-control" id="exampleInputEmail1"   #comment>
+                                     
+                                    </div>
+                                    
+                                    
+                      
+
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="refuse(element.id,element.startDate,element.endDate,element.reason,element.treated,element.accepted,element.user.id,comment.value)" >Refuse</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Details</button>
+    
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Details</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                            <form>
+                                    <div class="form-group">
+                                      <label for="email">Email address</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail1"  value="{{element.user.email}}" readonly="readonly">
+                                     
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="Fullname">Full name</label>
+                                      <input type="text" class="form-control"  value="{{element.user.name}}  {{element.user.nickname}}" readonly="readonly">
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="startDate">Start Date</label>
+                                            <input type="text" class="form-control" value="{{element.startDate}}" readonly="readonly">
+                                          </div>
+                                          <div class="form-group">
+                                                <label for="endDate">End Date</label>
+                                                <input type="rext" class="form-control" value="{{element.endDate}}" readonly="readonly">
+                                              </div>
+                                              <div class="form-group">
+                                                    <label for="reason">Reason</label>
+                                                    <input type="textarea" class="form-control"  value="{{element.reason}}" readonly="readonly">
+                                                  </div>
+                                    
+                                    
+                      
+</form>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div></td>
+      <!--<td mat-cell *matCellDef="let element"> button/button </td>-->
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+  </table>
+  <mat-paginator [pageSizeOptions]="[3,5, 10]" showFirstLastButtons></mat-paginator>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+<!--<table #dataTable class="display" style="width:100%">
     <thead>
         <tr>
             
@@ -18,11 +153,7 @@
             <td *ngIf="!item.treated">
                    
                 <button type="button" class="btn btn-success" (click)="accpet(item.id,item.startDate,item.endDate,item.reason,item.treated,item.accepted,item.user.id)" >Accept</button>
-                <!--<button type="button" class="btn btn-danger" (click)="refuse(item.id,item.startDate,item.endDate,item.reason,item.treated,item.accepted,item.user.id)">Refuse</button>-->
-
-
-
-
+               
 
 
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModa">Refuse</button>
@@ -119,7 +250,7 @@
         
     </tbody>
 </table>
-
+-->
 <!--Table-->
 <h2>Treated Requests</h2>
 <table class="table table-striped w-auto" border="1">
@@ -141,7 +272,7 @@
         <tbody>
           
         
-                <tr *ngFor="let item of requests " class="table-info" >
+                <tr *ngFor="let item of requestss " class="table-info" >
             
                        
                             <td  *ngIf="item.treated">{{item.user.name}} {{item.user.nickname}} </td>
@@ -159,3 +290,6 @@
       
       </table>
       <!--Table-->
+
+
+     

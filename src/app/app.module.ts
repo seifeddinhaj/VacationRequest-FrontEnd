@@ -15,6 +15,9 @@ import { CreateRequestComponent } from './create-request/create-request.componen
 import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { MaterialModule } from './custom.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule } from '@angular/material';
 
 
 @NgModule({
@@ -33,7 +36,15 @@ import { AllUsersComponent } from './all-users/all-users.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpModule,
+    AppRoutingModule,
+    HttpModule,
+    MaterialModule,
+    MatInputModule,
+    MatTableModule,
+   
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    MatSortModule
   ],
   providers: [Angular2TokenService],
   bootstrap: [AppComponent]

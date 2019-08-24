@@ -61,6 +61,35 @@ export class AllUsersComponent implements OnInit {
     this.dataSource.sort=this.sort;
 
    }
+   editProfile(firstname,lastname,email,adresse,image,id){
+     console.log(image)
+    if (firstname===""|| lastname==="" || adresse===""||email==="") {
+      alert ("fill all the fields")
+    } else {
+      
+    
+    console.log(id)
+   
+    this.tokenauth.patch("users/"+id,{name:firstname,nickname:lastname,email:email,image:image}).subscribe(data=>{
+      this.tokenauth.get("users").subscribe(data=>{
+        this.users=data.json()
+        this.dataSource.data=(this.users)
+        
+      })
+    })
+  }
+ }
+ delete(id){
+  this.tokenauth.delete("users/"+id).subscribe(data=>{
+    this.tokenauth.get("users").subscribe(data=>{
+      this.users=data.json()
+      this.dataSource.data=(this.users)
+      
+    })
+  })
+ 
+
+}
 }
 
 

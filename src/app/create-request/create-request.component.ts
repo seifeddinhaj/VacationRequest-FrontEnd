@@ -21,7 +21,11 @@ export class CreateRequestComponent implements OnInit {
       
     
     this.tokenauth.post("requests",{startDate:startDate,endDate:endDate,reason:reason,accepted:false,treated:false,comment:null,user_id:localStorage.getItem("id")})
-    this.router.navigateByUrl('auth/myRequests')
+    .subscribe(data=>{
+      alert("created successfully")
+      location.reload()
+    })
+    
   }
 
   }

@@ -31,12 +31,17 @@ this.authToken.patch("requests/"+id,{startDate:startDate,endDate:endDate,reason:
 
   }
   delete(id){
-    this.authToken.delete("requests/"+id)
-    this.authToken.get('requests')
-    .subscribe((data) => {
-      
-      this.requests=data.json()
-     this.requests=this.requests.filter(x=>x.user.id==localStorage.getItem("id"))})
+    this.authToken.delete("requests/"+id).subscribe(data=>{
+      console.log(data.status)
+      this.authToken.get('requests')
+      .subscribe((data) => {
+        
+        this.requests=data.json()
+       this.requests=this.requests.filter(x=>x.user.id==localStorage.getItem("id"))
+      console.log(this.requests)})
+
+    })
+   
 
   }
 }

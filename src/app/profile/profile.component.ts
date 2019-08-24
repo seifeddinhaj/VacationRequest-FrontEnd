@@ -52,6 +52,10 @@ this.imgPreview=this.selectedFile.item(0).name
     localStorage.setItem("image",this.imgPreview);
     localStorage.setItem("adresse",adresse);
     this.tokenauth.patch("users/"+localStorage.getItem('id'),{name:firstname,nickname:lastname,email:email,image:this.imgPreview,adresse:adresse})
+    .subscribe(data=>{
+      location.reload()
+    })
+    
   }
  }
  resetPassword(){

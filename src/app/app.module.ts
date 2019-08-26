@@ -18,6 +18,7 @@ import { AllUsersComponent } from './all-users/all-users.component';
 import { MaterialModule } from './custom.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule } from '@angular/material';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MatInputModule, MatTableModule, MatPaginatorModule, MatSortModule, MatP
     CreateRequestComponent,
     MyRequestsComponent,
     ResetPasswordComponent,
-    AllUsersComponent
+    AllUsersComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

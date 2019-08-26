@@ -8,9 +8,12 @@ import { CreateRequestComponent } from './create-request/create-request.componen
 import { MyRequestsComponent } from './my-requests/my-requests.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {path:'auth/signUp',component:SignUpComponent },
+  {path:'welcome',component:WelcomeComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   {path:'auth/profile',component:ProfileComponent },
   {path:'auth/CreateRequest',component:CreateRequestComponent },
   {path:'auth/myRequests',component:MyRequestsComponent },

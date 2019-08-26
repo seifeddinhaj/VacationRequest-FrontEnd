@@ -14,6 +14,7 @@ declare var $;
 export class RequestComponent implements OnInit {
 requests ;
 requestss ;
+dataTarget=27;
 namee;
 req:Requests;
 @ViewChild('dataTable',{static: true}) table;
@@ -21,9 +22,15 @@ dataTable: any;
 dtOption: any = {};
 @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort,{static: true}) sort: MatSort;
+
+ // @ViewChild(MatPaginator,{static: true}) paginator1: MatPaginator;
+ // @ViewChild(MatSort,{static: true}) sort1: MatSort;
+  //@ViewChild(MatPaginator,{static: true}) paginator1: MatPaginator;
+
   displayedColumns: string[] = ['weight','position', 'name', 'action'];
   dataSource = new MatTableDataSource();
-  requets:Request[];
+  dataSourceTreated = new MatTableDataSource();
+  //requets:Request[];
   constructor(private authToken:Angular2TokenService) {
     
 
@@ -41,12 +48,13 @@ this.authToken.get("requests").subscribe(data=>{
 this.authToken.get("requests").subscribe(data=>{
   this.requestss=data.json()
   this.requestss=this.requestss.filter(x=>x.treated==true)
+  this.dataSourceTreated.data=this.requestss
 })
 
 }
 applyFilter(filterValue: string) {
-filterValue = filterValue.trim();
-filterValue = filterValue.toLowerCase();
+//filterValue = filterValue.trim();
+//filterValue = filterValue.toLowerCase();
 this.dataSource.filter = filterValue;
 }
   
@@ -54,6 +62,8 @@ this.dataSource.filter = filterValue;
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort=this.sort; 
+   /// this.dataSourceTreated.paginator = this.paginator1;
+    //this.dataSourceTreated.sort=this.sort1; 
     
     
     

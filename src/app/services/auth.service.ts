@@ -32,6 +32,7 @@ export class AuthService {
       res => {
 
       alert("account created succesfully!")
+      this.router.navigateByUrl('/')
       },
 
       err => {

@@ -36,7 +36,7 @@ export class SignUpComponent implements OnInit {
    /* this.tokenauth.patch('users/'+this.tokenauth.currentUserData.id,{nickname:nk,name:n,email:em,encrypted_password:pas,image:'assets/img/avatar.png'}).subscribe(data=>{
       console.log(data)
     })*/
-  this.router.navigateByUrl('/')
+  
   }
   
    

@@ -23,16 +23,21 @@ this.signInUser.password=pass;
       res => {
         alert("login succes!")
       
-       
+        console.log("==="+res)
         localStorage.setItem("email", this.tokenauth.currentUserData.email);
         localStorage.setItem("name",this.tokenauth.currentUserData.name);
         localStorage.setItem("lastname",this.tokenauth.currentUserData.nickname);
         localStorage.setItem("id",JSON.stringify(this.tokenauth.currentUserData.id));
         localStorage.setItem("image",this.tokenauth.currentUserData.image);
-        localStorage.setItem("adresse",null);
-      
         
       
+        
+        this.tokenauth.get("users/"+localStorage.getItem("id")).subscribe(data=>{
+          let dt=data.json()
+          localStorage.setItem("adresse",dt.adresse);
+          console.log(dt.adresse)
+      
+        })
         
       },
       err => {
@@ -40,9 +45,10 @@ this.signInUser.password=pass;
         
 
       }
+      
      
   );
-
+  
 
   }
 

@@ -45,10 +45,10 @@ export class AuthService {
   logInUser(signInData: {email: string, password: string}) {
 
      return this.authService.signIn(signInData).subscribe(
-        res => {
-          alert("login succes!")
+        data => {
+          
         
-         
+         console.log("==="+data)
           localStorage.setItem("email", this.authService.currentUserData.email);
           localStorage.setItem("name",this.authService.currentUserData.name);
           localStorage.setItem("lastname",this.authService.currentUserData.nickname);
@@ -56,7 +56,7 @@ export class AuthService {
           localStorage.setItem("image",this.authService.currentUserData.image);
           localStorage.setItem("adresse",null);
         
-          
+          alert("login succes!")
         
           
         },

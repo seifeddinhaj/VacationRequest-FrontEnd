@@ -18,12 +18,35 @@ export class CreateRequestComponent implements OnInit {
       alert("you have to fill all the fields to create your request")
       
     } else {
+      let newDateStart = new Date(startDate);
+let newDateEnd = new Date(endDate);
+let dif= Math.abs(newDateEnd.getTime() - newDateStart.getTime());
+var diffDays = Math.ceil(dif/ (1000 * 3600 * 24)); 
+
       
     
     this.tokenauth.post("requests",{startDate:startDate,endDate:endDate,reason:reason,accepted:false,treated:false,comment:null,user_id:localStorage.getItem("id")})
     .subscribe(data=>{
+      this.tokenauth.get("users/"+localStorage.getItem("id")).subscribe(data=>{
+        let dt=data.json()
+        console.log("new blance"+(dt.balance-diffDays))
+        if(dt.balance-diffDays<0){
+          alert("your balance will be "+ (dt.balance-diffDays)+" Days,your request will highly  be rejcted by the administration! ")
+        }
+        this.tokenauth.patch("users/"+localStorage.getItem("id"),{name:localStorage.getItem("name"),
+        nickname:localStorage.getItem("lastname"),
+      email:localStorage.getItem("email"),
+      image:localStorage.getItem("image"),
+      adresse:localStorage.getItem("adresse"),
+      balance:dt.balance-diffDays})
+      
+      })
+     
+
+
+
       alert("created successfully")
-      location.reload()
+            location.reload()
     })
     
   }

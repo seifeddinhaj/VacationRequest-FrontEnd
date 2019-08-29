@@ -11,7 +11,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/1
   def show
-    render json: @request
+    render json: @request.to_json(:include => :user)
   end
 
   # POST /requests

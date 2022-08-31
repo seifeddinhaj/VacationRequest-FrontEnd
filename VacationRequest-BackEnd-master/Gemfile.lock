@@ -63,7 +63,7 @@ GEM
     erubi (1.8.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    hashie (3.6.0)
+    hashie (5.0.0)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     loofah (2.2.3)
@@ -78,19 +78,22 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    msgpack (1.3.0)
     msgpack (1.3.0-x64-mingw32)
     nio4r (2.4.0)
+    nokogiri (1.10.3)
+      mini_portile2 (~> 2.4.0)
     nokogiri (1.10.3-x64-mingw32)
       mini_portile2 (~> 2.4.0)
-    omniauth (1.9.0)
-      hashie (>= 3.4.6, < 3.7.0)
+    omniauth (1.9.2)
+      hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
     orm_adapter (0.5.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     puma (3.12.1)
-    rack (2.0.7)
+    rack (2.2.4)
     rack-cors (1.0.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -144,6 +147,7 @@ GEM
 
 PLATFORMS
   x64-mingw32
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
